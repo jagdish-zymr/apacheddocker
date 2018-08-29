@@ -19,7 +19,7 @@ if [ ! -d ${APACHEDS_INSTANCE_DIRECTORY} ]; then
 	## If TESTDATA20K is set to TRUE the test-dataset with 20K users will be installed on first startup
 	if [ "$TESTDATA20K" = "TRUE" ]; then
 		/opt/apacheds-${APACHEDS_VERSION}/bin/apacheds console ${APACHEDS_INSTANCE} &
-		sleep 15
+		sleep 45
 		ldapadd -v -h localhost:10389 -c -x -D uid=admin,ou=system -w secret -f /bootstrap/startup-entry.ldif
 		/opt/apacheds-${APACHEDS_VERSION}/bin/apacheds stop ${APACHEDS_INSTANCE}
 	fi
